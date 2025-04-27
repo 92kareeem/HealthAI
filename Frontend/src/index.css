@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #0062B8;
+  --secondary: #00B8A6;
+  --accent: #9D4EDD;
+  --success: #1D7832;
+  --warning: #F5A623;
+  --error: #EB5757;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-neutral-100 text-neutral-800 dark:bg-neutral-950 dark:text-neutral-100 font-sans;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-neutral-200 dark:bg-neutral-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-neutral-400 dark:bg-neutral-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-neutral-500 dark:bg-neutral-500;
+}
+
+/* Glass card styles */
+.glass-card {
+  @apply backdrop-blur-glass border border-white/10 dark:border-white/5 bg-white/10 dark:bg-neutral-900/30 shadow-glass transition-all duration-300;
+}
+
+.glass-card:hover {
+  @apply shadow-glass-hover;
+}
+
+.dark .glass-card {
+  @apply bg-glass-card-dark;
+}
+
+/* Form element styling */
+input, select, textarea {
+  @apply bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-400 dark:focus:ring-primary-600 transition-all duration-200;
+}
+
+button {
+  @apply transition-all duration-200;
+}
