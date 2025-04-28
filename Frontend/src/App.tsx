@@ -16,8 +16,13 @@ const PatientsList = lazy(() => import('./pages/doctor/PatientsList'));
 const PatientDetail = lazy(() => import('./pages/doctor/PatientDetail'));
 const Settings = lazy(() => import('./pages/Settings'));
 const Meetings = lazy(() => import('./pages/Meetings'));
-//const Profile = lazy(() => import('./pages/Profile'));
-//const NotFound = lazy(() => import('./pages/NotFound'));
+
+// AI Prediction Pages
+const AsthmaDetection = lazy(() => import('./pages/ai-prediction/AsthmaDetection'));
+const CancerDetection = lazy(() => import('./pages/ai-prediction/CancerDetection'));
+const DiabetesDetection = lazy(() => import('./pages/ai-prediction/DiabetesDetection'));
+const HeartDiseaseDetection = lazy(() => import('./pages/ai-prediction/HeartDiseaseDetection'));
+const KidneyDiseaseDetection = lazy(() => import('./pages/ai-prediction/KidneyDiseaseDetection'));
 
 function App() {
   const location = useLocation();
@@ -50,11 +55,16 @@ function App() {
             <Route path="patient">
               <Route path="dashboard" element={<PatientDashboard />} />
             </Route>
-            <Route path="ai-prediction" element={<AIDiseasePrediction />} />
+            <Route path="ai-prediction">
+              <Route index element={<AIDiseasePrediction />} />
+              <Route path="asthma" element={<AsthmaDetection />} />
+              <Route path="cancer" element={<CancerDetection />} />
+              <Route path="diabetes" element={<DiabetesDetection />} />
+              <Route path="heart" element={<HeartDiseaseDetection />} />
+              <Route path="kidney" element={<KidneyDiseaseDetection />} />
+            </Route>
             <Route path="meetings" element={<Meetings />} />
             <Route path="settings" element={<Settings />} />
-          {/* <Route path="profile" element={<Profile />} /> */}
-          {/* <Route path="*" element={<NotFound />} /> */}
           </Route>
         </Routes>
       </Suspense>
